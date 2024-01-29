@@ -16,6 +16,13 @@ function nomeMes(n: number){
   return  new Intl.DateTimeFormat("pt-BR", {month: "long"}).format(date);
 }
 
+function formatDate(date: Date){
+  const dd = String(date.getDate()).padStart(2, "0");
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const yyyy = String(date.getFullYear());
+  return `${yyyy}-${mm}-${dd}`;
+}
+
 const MesBtn = ({n}: {n:number}) => {
 
   const {setInicio, setFinal} = useData();
@@ -27,11 +34,11 @@ const MesBtn = ({n}: {n:number}) => {
     const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-    setInicio(firstDay);
-    setFinal(lastDay);
+    setInicio(formatDate(firstDay));
+    setFinal(formatDate(lastDay));
   }
 
-  return <button style={style}>{nomeMes(n)}</button>;
+  return <button onClick={()=> setMes(n)} style={style}>{nomeMes(n)}</button>;
 };
 
 export default MesBtn;

@@ -1,11 +1,11 @@
 import React from "react";
 import useFetch from "../Hooks/useFetch";
 
-type IVenda = {
+export type IVenda = {
   id: string;
   nome: string;
   preco: number;
-  status: "pagpo" | "processando" | "cartao";
+  status: "pago" | "processando" | "falha";
   pagamento: "boleto" | "pix" | "cartao";
   data: string;
   parcelas: number | null;
