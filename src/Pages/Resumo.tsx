@@ -1,3 +1,4 @@
+import GraficoVendas from "../Components/GraficoVendas";
 import { useData } from "../Context/DataContext";
 
 const Resumo = () => {
@@ -40,9 +41,10 @@ const Resumo = () => {
             }
             </span>
         </div>
-      </div>      
+      </div> 
+      
       <div className="box mb">
-        Box graficos
+        <GraficoVendas data={data} />
       </div>
     </section>
   );
